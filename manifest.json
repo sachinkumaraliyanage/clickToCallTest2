@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Iphonik Click To Call",
+  "version": "1.5",
+  "description": "Enables click-to-dial functionality for phone numbers found in pages.",
+
+  "icons": {  "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png" },
+
+    "browser_action":{
+      "default_icon": "icon16.png",
+      "default_popup": "popup.html"
+  },
+  "options_page":"option.html",
+  "minimum_chrome_version": "10",
+  "background": {"page":"background.html"},
+  "content_scripts": [
+    {
+	  "matches": ["*://*/*"],
+	  "js": ["common.js", "jquery-1.6.1.min.js", "plugin-proxy.js", "chrome.js"],
+	  "all_frames": true
+	}
+  ],
+  "web_accessible_resources" : [
+    "bootstrapper.js",
+    "ClickToDial.js",
+    "common.js",
+    "inin-jquery-extensions.js",
+    "jquery-1.6.1.min.js",
+    "plugin-proxy.js",
+    "chrome.js"
+  ],
+  "permissions": [
+    "storage",
+    "notifications",
+    "contextMenus",
+    "tabs",
+	"*://*/*"
+  ]
+}
